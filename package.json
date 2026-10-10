@@ -1,0 +1,13 @@
+{
+  "name": "opencode-plugins",
+  "version": "1.0.0",
+  "description": "Sidebar plugins for OpenCode V2: quota-bars and context-mosaic",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    "./quota-bars": "./quota-bars/index.ts",
+    "./quota-bars/tui": "./quota-bars/tui.tsx",
+    "./context-mosaic": "./context-mosaic/index.ts",
+    "./context-mosaic/tui": "./context-mosaic/tui.tsx"
+  }
+}

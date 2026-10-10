@@ -1,0 +1,19 @@
+{
+  "name": "opencode-quota-bars",
+  "version": "1.0.0",
+  "description": "OpenCode Go usage-limit bars in the TUI sidebar",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.ts",
+    "./tui": "./tui.tsx"
+  },
+  "dependencies": {
+    "@opencode/plugin": "latest"
+  },
+  "peerDependencies": {
+    "@opentui/core": ">=0.5.17",
+    "@opentui/solid": ">=0.5.17",
+    "solid-js": ">=1.9.0"
+  }
+}

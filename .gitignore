@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+*.tgz
+
+# unrelated plugins living alongside this repo (kept out of scope)
+rtk/
