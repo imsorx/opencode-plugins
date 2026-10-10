@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  body {
+    background: linear-gradient(135deg, #1d2530 0%, #171b1e 55%, #14161a 100%);
+    color: #bfbdb6;
+    font-family: "Liberation Mono", monospace;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .repo { margin-top: 52px; display: flex; align-items: baseline; gap: 14px; }
+  .repo .name { font-size: 34px; font-weight: bold; color: #e6e1cf; letter-spacing: 0.5px; }
+  .repo .acct { font-size: 20px; color: #6c7383; }
+  .tagline { margin-top: 10px; font-size: 17px; color: #8a919c; }
+  .panels { display: flex; gap: 36px; margin-top: 34px; }
+  .panel {
+    width: 540px; padding: 24px 26px;
+    background: #171b1e; border: 1px solid #2c3238; border-radius: 10px;
+  }
+  .panel h2 { font-size: 22px; font-weight: bold; color: #e6e1cf; margin-bottom: 20px; }
+  /* quota-bars */
+  .qrow { display: flex; align-items: center; height: 30px; margin-bottom: 16px; }
+  .qlabel { width: 44px; color: #6c7383; font-size: 19px; }
+  .qbar { flex: 1; display: flex; height: 22px; margin: 0 14px; border-radius: 2px; overflow: hidden; }
+  .qfill { height: 100%; }
+  .qtrack { flex: 1; height: 100%; background: #21272e; }
+  .qpct { font-size: 19px; margin-right: 12px; }
+  .qreset { color: #6c7383; font-size: 17px; }
+  /* context-mosaic */
+  .csum { font-size: 17px; color: #6c7383; margin-bottom: 16px; }
+  .cgrid { display: grid; grid-template-columns: repeat(12, 32px); gap: 6px 6px; margin-bottom: 14px; }
+  .sq { width: 26px; height: 26px; border-radius: 3px; }
+  .sq.solid { background: var(--c); }
+  .sq.half { background: linear-gradient(90deg, var(--c) 0 50%, transparent 50% 100%); border: 1.5px solid var(--c); }
+  .sq.third { background: linear-gradient(90deg, var(--c) 0 30%, transparent 30% 100%); border: 1.5px solid var(--c); }
+  .sq.free { background: transparent; border: 1.5px solid #4a5058; }
+  .clegend { margin-top: 14px; }
+  .lrow { display: flex; align-items: center; height: 26px; }
+  .dot { width: 13px; height: 13px; border-radius: 2px; margin-right: 10px; flex: none; }
+  .lname { color: #8a919c; font-size: 17px; }
+  .lval { margin-left: auto; color: #8a919c; font-size: 17px; }
+  .footer { margin-top: 26px; color: #6c7383; font-size: 15px; }
+</style>
+</head>
+<body>
+  <div class="repo">
+    <span class="acct">imsorx /</span>
+    <span class="name">opencode-plugins</span>
+  </div>
+  <div class="tagline">sidebar plugins for OpenCode V2 &mdash; quota bars &amp; context mosaic</div>
+
+  <div class="panels">
+    <div class="panel">
+      <h2>Quota Status</h2>
+      <div class="qrow">
+        <span class="qlabel">5h</span>
+        <div class="qbar"><div class="qfill" style="width:13%; background:#8ecb8f"></div><div class="qtrack"></div></div>
+        <span class="qpct" style="color:#8ecb8f">13%</span>
+        <span class="qreset">4h</span>
+      </div>
+      <div class="qrow">
+        <span class="qlabel">wk</span>
+        <div class="qbar"><div class="qfill" style="width:55%; background:#8ecb8f"></div><div class="qtrack"></div></div>
+        <span class="qpct" style="color:#8ecb8f">55%</span>
+        <span class="qreset">2d</span>
+      </div>
+      <div class="qrow">
+        <span class="qlabel">mo</span>
+        <div class="qbar"><div class="qfill" style="width:27%; background:#8ecb8f"></div><div class="qtrack"></div></div>
+        <span class="qpct" style="color:#8ecb8f">27%</span>
+        <span class="qreset">30d</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Context Breakdown</h2>
+      <div class="csum">412k &middot; cache 88.6k &middot; unc 12.4k</div>
+      <div class="cgrid">
+        <!-- 36 cells: 8 solid accent-ish, 2 half, 2 third, rest free -->
+        <div class="sq solid" style="--c:#4a4f57"></div>
+        <div class="sq solid" style="--c:#4a4f57"></div>
+        <div class="sq solid" style="--c:#86a8c8"></div>
+        <div class="sq half" style="--c:#86a8c8"></div>
+        <div class="sq solid" style="--c:#e2b95e"></div>
+        <div class="sq third" style="--c:#d38d8d"></div>
+        <div class="sq solid" style="--c:#66804e"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+        <div class="sq free"></div><div class="sq free"></div>
+      </div>
+      <div class="clegend">
+        <div class="lrow"><span class="dot" style="background:#4a4f57"></span><span class="lname">system</span><span class="lval">2.7k   1%</span></div>
+        <div class="lrow"><span class="dot" style="background:#86a8c8"></span><span class="lname">tools</span><span class="lval">12.0k  16%</span></div>
+        <div class="lrow"><span class="dot" style="background:#e2b95e"></span><span class="lname">mcp</span><span class="lval">2.2k    1%</span></div>
+        <div class="lrow"><span class="dot" style="background:#d38d8d"></span><span class="lname">prompts</span><span class="lval">4.8k    2%</span></div>
+        <div class="lrow"><span class="dot" style="background:#66804e"></span><span class="lname">results</span><span class="lval">52.0k  25%</span></div>
+        <div class="lrow"><span class="dot" style="background:#e6e1cf"></span><span class="lname">replies</span><span class="lval">17.3k  11%</span></div>
+        <div class="lrow"><span class="dot" style="border:1.5px solid #4a5058"></span><span class="lname">free</span><span class="lval">136k   66%</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
